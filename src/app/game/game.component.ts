@@ -20,6 +20,10 @@ export class GameComponent implements OnInit {
     this.currentQuestion = this.game.nextQuestion();
   }
 
+  onAnswerClick(answer) {
+    console.log(`${answer} was clicked and is ${this.currentQuestion.validate(answer)}`);
+  }
+
   ngOnInit() {
   }
 

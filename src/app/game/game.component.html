@@ -1,6 +1,6 @@
 <div class="game-container">
   <div class="game-question">{{currentQuestion.question}}</div>
   <div class="game-answer-container">
-    <div class="answer" *ngFor="let answer of currentQuestion.answers">{{answer}}</div>
+    <button class="answer" *ngFor="let answer of currentQuestion.answers" (click)="onAnswerClick(answer)">{{answer}}</button>
   </div>
 </div>
