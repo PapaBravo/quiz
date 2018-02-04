@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Game } from '../../models/game';
+import { Question } from '../../models/question';
 
 @Component({
   selector: 'app-game',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  game: Game;
+  currentQuestion: Question;
+  constructor() {
+    this.game = new Game(
+      [
+        new Question('What is in my pocket?', 'The One Ring', ['My hand', 'A knife', 'Some coins'])
+      ]
+    );
+    this.currentQuestion = this.game.nextQuestion();
+  }
 
   ngOnInit() {
   }

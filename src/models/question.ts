@@ -1,8 +1,13 @@
 export class Question {
+
+    private _answers: string[];
+
     constructor(private _question: string,
         private _correctAnswer: string,
         private _wrongAnswers: string[]
-    ) { }
+    ) {
+        this._answers = Question.shuffle([_correctAnswer, ..._wrongAnswers]);
+    }
 
     /**
     * Shuffles array in place.
@@ -17,8 +22,12 @@ export class Question {
         return a;
     }
 
-    getShuffledAnswers(): string[] {
-        return Question.shuffle([this._correctAnswer, ...this._wrongAnswers]);
+    get answers(): string[] {
+        return this._answers;
+    }
+
+    get question(): string {
+        return this._question;
     }
 
     validate(answer: string): boolean {

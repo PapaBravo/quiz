@@ -12,7 +12,7 @@ describe('Question', () => {
     });
 
     it('Returns wrong and correct answers', () => {
-        const answers = q.getShuffledAnswers();
+        const answers = q.answers;
         expect(answers.length).toBe(wrongAnswers.length + 1);
         wrongAnswers.forEach(a => expect(answers.indexOf(a) >= 0));
         expect(answers.indexOf(correctAnswer) >= 0);
