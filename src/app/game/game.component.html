@@ -1,6 +1,18 @@
-<div class="game-container">
-  <div class="game-question">{{currentQuestion.question}}</div>
-  <div class="game-answer-container">
-    <button mat-raised-button class="answer" *ngFor="let answer of currentQuestion.answers" (click)="onAnswerClick(answer)">{{answer}}</button>
-  </div>
-</div>
+<mat-drawer-container>
+  <mat-drawer-content>
+    <mat-card class="game-question">
+      <mat-card-header>
+        <mat-card-title>{{currentQuestion.question}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-actions>
+        <button mat-raised-button class="answer" *ngFor="let answer of currentQuestion.answers" (click)="onAnswerClick(answer)">{{answer}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-drawer-content>
+
+  <mat-drawer mode="side" position='end' opened="true">
+    <mat-list>
+      <mat-list-item *ngFor="let state of states.reverse()">{{state | number}}</mat-list-item>
+    </mat-list>
+  </mat-drawer>
+</mat-drawer-container>
